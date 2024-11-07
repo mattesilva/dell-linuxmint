@@ -265,7 +265,7 @@ sudo apt update
 
 #instalação dos software base do Linux Mint 20.x, 21.x e 22.x
 #opção da contra barra (\): criar uma quebra de linha no terminal
-sudo apt install software-properties-common build-essential lsb-core dkms lsb-release \
+sudo apt install software-properties-common build-essential lsb-base dkms lsb-release \
 apt-transport-https module-assistant
 
 #instalação dos software de hardware e monitoramento do Linux Mint 20.x, 21.x e 22.x
