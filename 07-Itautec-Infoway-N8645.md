@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 19/05/2023<br>
-#Data de atualização: 31/10/2024<br>
-#Versão: 0.13<br>
+#Data de atualização: 07/11/2024<br>
+#Versão: 0.15<br>
 #Testado e homologado no Linux Mint 20 Ulyana, 20.1 Ulyssa, 20.2 Uma e 20.3 Una x64<br>
 #Testado e homologado no Linux Mint 21 Vanessa, 21.1 Vera, 21.2 Victoria e 21.3 Virginia x64<br>
 #Testado e homologado no Linux Mint 22 Wilma x64<br>
@@ -276,7 +276,7 @@ ipmiutil smartmontools btop
 #instalação dos software e aplicativos básicos do Linux Mint 20.x, 21.x e 22.x
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install ttf-mscorefonts-installer cheese guvcview v4l-utils cairo-dock vim git \
-p7zip-full p7zip-rar
+p7zip-full p7zip-rar pulseaudio
 
 #reinicializar o Sistema
 sudo reboot
@@ -297,8 +297,8 @@ sudo apt install libgl1-mesa-dev libgles2-mesa-dev libassimp5 libgles2-mesa-dev
 #Reinicializar o Sistema
 sudo reboot
 
-#Instalação do Driver de Vídeo da Radeon (DESATIVADO - NÃO UTILIZAR ESSE PROCEDIMENTO,
-#FALHA NA INICIALIZAÇÃO DO X11, DRIVER FOI DESCONTINUADO)
+#Instalação do Driver de Vídeo da Radeon (PROCEDIMENTO DESATIVADO - NÃO UTILIZAR ESSE PROCEDIMENTO,
+#FALHA NA INICIALIZAÇÃO DO GERENCIADOR DE AMBIENTE GRÁFICO X11, ESSE DRIVER FOI DESCONTINUADO)
 #sudo apt install xserver-xorg-video-radeon
 
 #Testando o suporte ao Driver da Intel Mesa
@@ -321,6 +321,7 @@ A) Software de Benchmark para GNU/Linux para Testar Desempenho Gráfico
 #13_ Instalação e Configuração dos Principais Aplicativos utilizados no Dia-a-Dia do Linux Mint<br>
 
 A) Instalação dos principais navegadores de Internet (DEIXAR OS ÍCONES NO DESKTOP)
+  DICA: BAIXAR TODOS OS APLICATIVOS DO SITE OFICIAL DOS DESENVOLVEDORES
   01) Google Chrome: https://www.google.com/intl/pt-BR/chrome/
   02) Opera: https://www.opera.com/pt-br
   03) Microsoft Edge: https://www.microsoft.com/pt-br/edge/?form=MA13FJ
@@ -328,12 +329,12 @@ A) Instalação dos principais navegadores de Internet (DEIXAR OS ÍCONES NO DES
   05) Brave: https://brave.com/pt-br/
 
 B) Instalação dos principais softwares de Produtividade (DEIXAR OS ÍCONES NO DESKTOP)
-  01) KolourPaint: https://apps.kde.org/pt-br/kolourpaint/
-  02) NotepadQQ: https://notepadqq.com/s/
-  03) VLC: https://www.videolan.org/vlc/
-  04) Audacity: https://www.audacityteam.org/
-  05) Kdenlive: https://kdenlive.org/en/
-  06) Kazam: https://launchpad.net/kazam
+  01) KolourPaint: https://apps.kde.org/pt-br/kolourpaint/  DICA: instalar via apt
+  02) NotepadQQ: https://notepadqq.com/s/                   DICA: instalar via apt
+  03) VLC: https://www.videolan.org/vlc/                    DICA: instalar via apt
+  04) Audacity: https://www.audacityteam.org/               DICA: instalar via apt
+  05) Kdenlive: https://kdenlive.org/en/                    DICA: usar imagens AppImage
+  06) Kazam: https://launchpad.net/kazam                    DICA: instalar via apt
 
 C) Instalar e Configurar todos os procedimentos do Oracle VirtualBOX (DEIXAR O ÍCONE NO DESKTOP)
   01) Site: VirtualBOX: https://www.virtualbox.org/

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 09/10/2021<br>
-#Data de atualização: 27/07/2024<br>
-#Versão: 0.15<br>
+#Data de atualização: 13/11/2024<br>
+#Versão: 0.16<br>
 #Testado e homologado no Linux Mint 20 Ulyana, 20.1 Ulyssa, 20.2 Uma e 20.3 Una x64<br>
 #Testado e homologado no Linux Mint 21 Vanessa, 21.1 Vera, 21.2 Victoria e 21.3 Virginia x64<br>
 #Testado e homologado no Linux Mint 22 Wilma x64<br>
@@ -40,7 +40,7 @@ sudo cat /etc/lsb-release
 
 #modo gráfico para verificar as informações de sistema operacional e hardware
 Menu
-	Informações do Sistema
+  Informações do Sistema
 ```
 
 #01_ Verificando a quantidade de memória RAM no Linux Mint
@@ -75,13 +75,16 @@ sudo df -h
 #opção do comando inxi: -Duxxx -D (disk), -u (uuid), -xxx (extra data levels)
 sudo inxi -Duxxx
 
-#OPÇÃO DO INXI PARA O LINUX MINT 21.x
+#OPÇÃO DO INXI PARA O LINUX MINT 21.x E 22.X
 #opção do comando inxi: -Duxxx -D (disk), -P (Partition), -xxx (extra data levels)
 sudo inxi -DPxxx
 
 #desligando o Swapfile
 #opção do comando swapoff: -v (verbose)
 sudo swapoff -v /swapfile
+
+#verificando o status da Swapfile
+#opção do comando swapon: --show (Display a definable table of swap areas)
 sudo swapon --show
 
 #Opção-01: Comentar a linha de configuração do Swapfile no arquivo fstab
@@ -89,10 +92,12 @@ sudo apt install vim smartmontools
 
 #editar o arquivo de configuração do FSTAB
 sudo vim /etc/fstab
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 
-	#Comentar a linha: 12 do Swapfile
-	#swapfile	none	swap	sw	0	0
+  #Comentar a linha: 12 do Swapfile
+  #swapfile	none	swap	sw	0	0
 
 #salvar e sair do arquivo
 ESC SHIFT :x <Enter>
@@ -106,9 +111,12 @@ ESC SHIFT :x <Enter>
 #opção do comando sed: -i (in-place), /^\ (início da lista + escape), /d (delete)
 sudo sed -i ′/^\/swapfile/d′ /etc/fstab
 
-#listando e removendo o arquivo de Swapfile
-#opção do comando rm: -v (verbose)
+#listando o arquivo de Swapfile
+#opção do comando ls: -l (list long format), -h (humman-read)
 sudo ls -lh /swapfile
+
+#removendo o arquivo de Swapfile
+#opção do comando rm: -v (verbose)
 sudo rm -v /swapfile
 
 #Reiniciar o Linux Mint para verificar se o Swapfile foi removido.
@@ -123,7 +131,7 @@ sudo df -h
 #opção do comando inxi: -Duxxx -D (disk), -u (uuid), -xxx (extra data levels)
 sudo inxi -Duxxx
 
-#OPÇÃO DO INXI PARA O LINUX MINT 21.x
+#OPÇÃO DO INXI PARA O LINUX MINT 21.x e 22.x
 #opção do comando inxi: -Duxxx -D (disk), -P (Partition), -xxx (extra data levels)
 sudo inxi -DPxxx
 ```
@@ -134,13 +142,17 @@ sudo inxi -DPxxx
 #de estado sólido quais blocos de dados não são mais considerados 'em uso' e, portanto, podem ser 
 #apagados internamente. O Trim foi introduzido logo após a introdução dos SSDs.
 
-#verificando as informações de partições e discos
+#verificando as informações de partições e discos com o fdisk
 #opção do comando fdisk: -l (list)
-#opção do comando smartctl: -a (all)
-#opção do comando fstrim: -v (verbose)
 sudo fdisk -l
-sudo smartctl -a /dev/nvme0n1
-sudo fstrim -v /home/vaamonde
+
+#verificando as informações de partições e discos com o smartctl
+#opção do comando smartctl: -a (all)
+sudo smartctl -a /dev/MUDAR_PARA_SEU_HD (VEJA A LINHA: Disco do comando fdisk)
+
+#verificando as informações do TRIM no diretório com o comando fstrim
+#opção do comando fstrim: -v (verbose)
+sudo fstrim -v /home/MUDAR_PARA_O_SEU_USUÁRIO
 
 #verificando o status do serviço do FSTRIM (padrão desativado: Active: inactive (dead))
 sudo systemctl status fstrim
